@@ -13,8 +13,6 @@
 
 Vue component (Vue.js 3.0) allowing drag-and-drop and synchronization with view model array.
 
-For Vue 2 and Vue 1 version check: https://github.com/SortableJS/Vue.Draggable
-
 Based on and offering all features of [Sortable.js](https://github.com/RubaXa/Sortable)
 
 ## Demo
@@ -68,7 +66,7 @@ npm i -S vuedraggable@next
 
 ```
 
-[cf example section](https://github.com/SortableJS/Vue.Draggable/tree/master/example)
+[cf example section](https://github.com/tsuriyathep/vue.draggable.next/tree/master/example)
 
 
 ## Typical use:
@@ -152,51 +150,6 @@ computed: {
         }
     }
 }
-```
-
-### Migrate from vue 2 version:
-
-Breaking changes:
-  1) Use `item` slot instead of default to display elements
-  2) Provide a key for items using `itemKey` props
-
-From:
-``` html
-<!-- vue 2 version -->
-<draggable v-model="myArray">
-   <div v-for="element in myArray" :key="element.id">{{element.name}}</div>
-</draggable>
-```
-To:
-``` html
-<draggable v-model="myArray" item-key="id">
-  <template #item="{element}">
-    <div>{{element.name}}</div>
-   </template>
-</draggable>
-```
-
-Breaking changes:
-  3) When using transition, you should now use the `tag` props and `componentData` to create the transition
-
-From
-``` html
-<!-- vue 2 version -->
-<draggable v-model="myArray">
-    <transition-group name="fade">
-        <div v-for="element in myArray" :key="element.id">
-            {{element.name}}
-        </div>
-    </transition-group>
-</draggable>
-```
-to
-``` html
-<draggable v-model="myArray" tag="transition-group" :component-data="{name:'fade'}">
-  <template #item="{element}">
-    <div>{{element.name}}</div>
-  </template>
-</draggable>
 ```
 
 ### Props
