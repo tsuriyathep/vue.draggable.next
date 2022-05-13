@@ -78,7 +78,9 @@ npm i -S vuedraggable@next
   group="people" 
   @start="drag=true" 
   @end="drag=false" 
-  item-key="id">
+  item-key="id"
+  :force-fallback="true" fallbackAxis="x"
+  >
   <template #item="{element}">
     <div>{{element.name}}</div>
    </template>
