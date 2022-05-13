@@ -1,4 +1,4 @@
-import Sortable from "sortablejs";
+import Sortable from 'sortable-axis/modular/sortable.complete.esm.js';
 import { insertNodeAt, removeNode } from "./util/htmlHelper";
 import { console } from "./util/console";
 import {
@@ -9,6 +9,7 @@ import {
 import { computeComponentStructure } from "./core/renderHelper";
 import { events } from "./core/sortableEvents";
 import { h, defineComponent, nextTick } from "vue";
+import { Swap } from 'sortable-axis';
 
 function emit(evtName, evtData) {
   nextTick(() => this.$emit(evtName.toLowerCase(), evtData));
@@ -119,7 +120,9 @@ const draggableComponent = defineComponent({
   mounted() {
     if (this.error) {
       return;
-    }
+    } 
+
+    Sortable.mount(new Swap());
 
     const { $attrs, $el, componentStructure } = this;
     componentStructure.updated();
