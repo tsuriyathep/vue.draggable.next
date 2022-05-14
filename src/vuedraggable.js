@@ -9,7 +9,7 @@ import {
 import { computeComponentStructure } from "./core/renderHelper";
 import { events } from "./core/sortableEvents";
 import { h, defineComponent, nextTick } from "vue";
-import { Swap } from 'sortable-axis';
+import { Swap, RevertOnSpill } from 'sortable-axis';
 
 function emit(evtName, evtData) {
   nextTick(() => this.$emit(evtName.toLowerCase(), evtData));
@@ -122,7 +122,7 @@ const draggableComponent = defineComponent({
       return;
     } 
 
-    Sortable.mount(new Swap());
+    Sortable.mount(new Swap(), new RevertOnSpill());
 
     const { $attrs, $el, componentStructure } = this;
     componentStructure.updated();

@@ -12119,7 +12119,7 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
       return;
     }
 
-    sortable_complete_esm.mount(new sortable_esm_SwapPlugin());
+    sortable_complete_esm.mount(new sortable_esm_SwapPlugin(), new /* Cannot get final name for export "RevertOnSpill" in "./node_modules/sortable-axis/modular/sortable.esm.js" (known exports: default MultiDrag Sortable Swap, known reexports: ) */ undefined());
     var $attrs = this.$attrs,
         $el = this.$el,
         componentStructure = this.componentStructure;
